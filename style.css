@@ -1,151 +1,19 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#ffd7ef,#c9f7ff);
-    font-family:"Segoe UI",sans-serif;
-    overflow:hidden;
-}
-
-.card{
-    width:900px;
-    height:560px;
-    display:flex;
-    border-radius:30px;
-    overflow:hidden;
-    background:white;
-    box-shadow:0 20px 50px rgba(0,0,0,.2);
-}
-
-/* ===== BÌA ===== */
-.cover{
-    width:100%;
-    height:100%;
-    background:linear-gradient(160deg,#ff74b8,#ff9ed5 70%,#ffd3ea);
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:40px;
-    transition:width 1s ease;
-    position:relative;
-    z-index:2;
-    cursor:pointer;
-}
-
-.cover::before{
-    content:"";
+/* ===== MIKU POP-UP ===== */
+.miku{
     position:absolute;
-    inset:20px;
-    border:2px solid rgba(255,255,255,.35);
-    border-radius:22px;
+    left:-220px;        /* nằm ngoài mép trái */
+    bottom:40px;
+    width:200px;
+    height:auto;
+    opacity:0;
+    transform:translateX(-80px) rotate(-12deg) scale(0.7);
+    transition:all .9s cubic-bezier(.18,.89,.32,1.28);
+    filter:drop-shadow(0 10px 20px rgba(0,0,0,.25));
+    z-index:5;
 }
 
-.cover-content{
-    position:relative;
-    z-index:1;
-}
-
-.small{
-    letter-spacing:3px;
-    text-transform:uppercase;
-    font-size:14px;
-    opacity:.9;
-    margin-bottom:12px;
-}
-
-.cover h1{
-    font-size:52px;
-    line-height:1.1;
-    margin-bottom:18px;
-}
-
-.cover p{
-    font-size:18px;
-    opacity:.95;
-}
-
-/* ===== MẶT TRONG ===== */
-.inside{
-    width:0;
-    height:100%;
-    position:relative;
-    overflow:hidden;
-    transition:width 1s ease;
-    background:#f5fbff;
-}
-
-/* Khi mở */
-.card.open .cover{
-    width:42%;
-}
-
-.card.open .inside{
-    width:58%;
-}
-
-/* ===== ẢNH THIỆP BIỂN ===== */
-.paper{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-}
-
-/* Nội dung trên thiệp */
-.letter{
-    position:absolute;
-    top:12%;
-    left:12%;
-    right:12%;
-    bottom:18%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-}
-
-.letter h2{
-    color:#1a5f7a;
-    font-size:32px;
-    margin-bottom:20px;
-    text-shadow:0 2px 4px rgba(255,255,255,.9);
-}
-
-.message{
-    color:#163040;
-    font-size:17px;
-    line-height:1.9;
-    font-weight:500;
-    text-shadow:0 1px 3px rgba(255,255,255,.95);
-}
-
-/* ===== NÚT ĐÓNG ===== */
-#closeBtn{
-    position:absolute;
-    bottom:22px;
-    right:22px;
-    border:none;
-    background:linear-gradient(135deg,#5fd8e7,#37c7db);
-    color:white;
-    padding:12px 26px;
-    border-radius:999px;
-    font-size:15px;
-    cursor:pointer;
-    box-shadow:0 10px 20px rgba(55,199,219,.28);
-    transition:transform .2s ease;
-}
-
-#closeBtn:hover{
-    transform:translateY(-2px);
+/* Khi mở thiệp */
+.card.open .miku{
+    opacity:1;
+    transform:translateX(260px) rotate(0deg) scale(1);
 }
