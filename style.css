@@ -1,0 +1,134 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffd7ef,#c9f7ff);
+    font-family:"Segoe UI",sans-serif;
+    overflow:hidden;
+}
+
+.card{
+    width:850px;
+    height:520px;
+    display:flex;
+    border-radius:32px;
+    overflow:hidden;
+    background:white;
+    box-shadow:0 25px 60px rgba(0,0,0,.22);
+}
+
+/* ===== BÌA ===== */
+.cover{
+    width:100%;
+    height:100%;
+    background:linear-gradient(160deg,#ff74b8,#ff9ed5 70%,#ffd3ea);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+    transition:width 1s ease;
+    position:relative;
+    z-index:2;
+    cursor:pointer;
+}
+
+.cover::before{
+    content:"";
+    position:absolute;
+    inset:20px;
+    border:2px solid rgba(255,255,255,.4);
+    border-radius:24px;
+}
+
+.cover-content{
+    position:relative;
+    z-index:1;
+}
+
+.small{
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-size:14px;
+    opacity:.9;
+    margin-bottom:12px;
+}
+
+.cover h1{
+    font-size:56px;
+    margin-bottom:18px;
+}
+
+.cover p{
+    font-size:18px;
+}
+
+/* ===== MẶT TRONG ===== */
+.inside{
+    width:0;
+    height:100%;
+    position:relative;
+    overflow:hidden;
+    transition:width 1s ease;
+    background:linear-gradient(180deg,#ffffff,#eefbff);
+}
+
+.card.open .cover{
+    width:42%;
+}
+
+.card.open .inside{
+    width:58%;
+}
+
+
+
+.card.open .miku{
+    opacity:1;
+    transform:translateX(300px) rotate(4deg) scale(1);
+}
+
+/* ===== LỜI CHÚC ===== */
+.letter{
+    position:absolute;
+    top:20%;
+    left:18%;
+    right:10%;
+    text-align:center;
+}
+
+.letter h2{
+    color:#00aebf;
+    font-size:34px;
+    margin-bottom:24px;
+}
+
+.message{
+    color:#445;
+    font-size:18px;
+    line-height:1.9;
+    font-weight:500;
+}
+
+/* ===== NÚT ===== */
+#closeBtn{
+    position:absolute;
+    bottom:24px;
+    right:24px;
+    border:none;
+    background:linear-gradient(135deg,#5fd8e7,#37c7db);
+    color:white;
+    padding:12px 28px;
+    border-radius:999px;
+    font-size:15px;
+    cursor:pointer;
+    box-shadow:0 10px 20px rgba(55,199,219,.28);
+}

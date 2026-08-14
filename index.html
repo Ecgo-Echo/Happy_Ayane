@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayane Birthday Card</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card" id="card">
+
+        <!-- BÌA -->
+        <div class="cover" id="cover">
+            <div class="cover-content">
+                <div class="small">for Ayane</div>
+                <h1>🎂 Happy Birthday</h1>
+                <p>クリックして開いてね 💙</p>
+            </div>
+        </div>
+
+        <!-- MẶT TRONG -->
+        <div class="inside">
+            <!-- Lời chúc -->
+            <div class="letter">
+                <h2>あやね、お誕生日おめでとう！</h2>
+
+                <p class="message">
+                    素敵な一年になりますように ✨💙<br>
+                    たくさん笑って、幸せいっぱいの日々を過ごしてね 🎉
+                </p>
+            </div>
+
+            <button id="closeBtn">閉じる</button>
+        </div>
+    </div>
+
+    <!-- NHẠC -->
+    <audio id="bgm" src="birthday.mp3" preload="auto" loop></audio>
+
+    <script>
+        const card = document.getElementById('card');
+        const cover = document.getElementById('cover');
+        const closeBtn = document.getElementById('closeBtn');
+        const bgm = document.getElementById('bgm');
+
+        cover.addEventListener('click', async () => {
+            if (!card.classList.contains('open')) {
+                card.classList.add('open');
+
+                try {
+                    bgm.currentTime = 0;
+                    bgm.volume = 0.6;
+                    await bgm.play();
+                } catch (e) {
+                    console.log('Audio bị chặn');
+                }
+            }
+        });
+
+        closeBtn.addEventListener('click', () => {
+            card.classList.remove('open');
+            bgm.pause();
+            bgm.currentTime = 0;
+        });
+    </script>
+
+</body>
+</html>
